@@ -1,0 +1,32 @@
+stages:
+  - test
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+test:
+  stage: test
+  image: "python:${PYTHON_VERSION}-slim"
+  parallel:
+    matrix:
+      - PYTHON_VERSION: ["3.11", "3.12"]
+  cache:
+    key:
+      prefix: "pip-${PYTHON_VERSION}"
+      files:
+        - pyproject.toml
+        - requirements.txt
+    paths:
+      - .cache/pip/
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends libgomp1
+    - python -m pip install -e ".[dev]"
+  script:
+    - python -m pytest -q

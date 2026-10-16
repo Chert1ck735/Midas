@@ -1,0 +1,62 @@
+# Секреты не коммитим. Конфиг-шаблон — в .env.example.
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+.venv/
+venv/
+env/
+
+# Runtime data stays local; only the two reference models are distributed.
+/data/*
+!/data/models/
+/data/models/*
+!/data/models/lgbm_buy_filter_v5.joblib
+!/data/models/lgbm_buy_filter_v5.meta.json
+!/data/models/lgbm_short_filter_v2.joblib
+!/data/models/lgbm_short_filter_v2.meta.json
+logs/
+*.log
+
+build/
+dist/
+*.egg-info/
+
+# Hackathon task description (don't redistribute organizers' material)
+*.pdf
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+
+# AI assistant context — not part of the solution
+CLAUDE.md
+
+# внутренние рабочие заметки
+HANDOFF.md
+
+# Local tooling, editor settings, credentials and assistant state
+/.agents/
+/.codex/
+/.aws/
+/.idea/
+/.vscode/
+.coverage
+.coverage.*
+htmlcov/
+*.pem
+*.key
+*.p12
+*.pfx
+*.bak
+*.new
+*~

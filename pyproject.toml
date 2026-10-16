@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moex-ai-agent"
+version = "0.1.0"
+description = "Research trading agent for MOEX with LightGBM signal filters, risk controls and ArenaGo integration"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+dependencies = [
+  "requests==2.33.1",
+  "python-dotenv==1.2.2",
+  "moexalgo==2.5.9",
+  "scikit-learn==1.8.0",
+  "lightgbm==4.6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.urls]
+Repository = "https://gitlab.com/chert1ck555/midas"
+Issues = "https://gitlab.com/chert1ck555/midas/-/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.scripts]
+moex-agent = "moex_agent.app:main"
+moex-report = "moex_agent.report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
