@@ -60,3 +60,7 @@ htmlcov/
 *.bak
 *.new
 *~
+.venv/
+.env
+__pycache__/
+*.pyc
