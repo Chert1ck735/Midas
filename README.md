@@ -1,7 +1,7 @@
 
 # Midas — MOEX Trading Agent
 
-Репозиторий: [chert1ck555/midas](https://gitlab.com/chert1ck555/midas).
+Репозиторий: [chert1ck735/midas](https://gitlab.com/chert1ck735/midas).
 
 Исследовательский торговый агент для Московской биржи, созданный для хакатона ArenaGo.
 Проект объединяет стратегию на технических индикаторах, ML-фильтр сигналов и отдельный
